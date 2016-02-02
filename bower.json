@@ -1,0 +1,25 @@
+{
+  "name": "clothing-retailer-website",
+  "homepage": "https://github.com/hsheikhm",
+  "authors": [
+    "Hamza Sheikh"
+  ],
+  "description": "A website built in AngularJS to represent a clothing retailer.",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "1.4.x",
+    "angular-mocks": "1.4.x",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.1.1",
+    "angular-route": "1.4.x",
+    "angular-resource": "1.4.x",
+    "angular-animate": "1.4.x"
+  }
+}
