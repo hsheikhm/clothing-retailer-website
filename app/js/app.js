@@ -1,8 +1,8 @@
 var clothingApp = angular.module('clothingApp', [
   'ngRoute',
-  'ngResource',
-  'clothingAppControllers',
-  'clothingAppServices'
+  'ngResource'
+  // 'clothingAppControllers',
+  // 'clothingAppServices'
 ]);
 
 clothingApp.config(['$routeProvider',
