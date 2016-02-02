@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "name": "Leather Driver Saddle Loafers, Tan",
+      "category": "Men’s Footwear",
+      "price": 34.00,
+      "quantity": 12
+    },
+    {
+      "name": "Flip Flops, Red",
+      "category": "Men’s Footwear",
+      "price": 19.00,
+      "quantity": 6
+    },
+    {
+      "name": "Flip Flops, Blue",
+      "category": "Men’s Footwear",
+      "price": 19.00,
+      "quantity": 0
+    }
+  ]
+}

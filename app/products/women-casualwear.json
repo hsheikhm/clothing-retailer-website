@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "name": "Gold Button Cardigan, Black",
+      "category": "Women’s Casualwear",
+      "price": 167.00,
+      "quantity": 6
+    },
+    {
+      "name": "Cotton Shorts, Medium Red",
+      "category": "Women’s Casualwear",
+      "price": 30.00,
+      "quantity": 5
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "name": "Fine Stripe Short Sleeve Shirt, Grey",
+      "category": "Men’s Casualwear",
+      "price": 49.99,
+      "quantity": 9
+    },
+    {
+      "name": "Fine Stripe Short Sleeve Shirt, Green",
+      "category": "Men’s Casualwear",
+      "price": 39.99,
+      "quantity": 3
+    }
+  ]
+}

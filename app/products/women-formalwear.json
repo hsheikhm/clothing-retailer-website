@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "name": "Bird Print Dress, Black",
+      "category": "Women’s Formalwear",
+      "price": 270.00,
+      "quantity": 10
+    },
+    {
+      "name": "Mid Twist Cut-Out Dress, Pink",
+      "category": "Women’s Formalwear",
+      "price": 540.00,
+      "quantity": 5
+    }
+  ]
+}
