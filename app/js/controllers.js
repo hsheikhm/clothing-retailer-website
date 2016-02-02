@@ -15,6 +15,7 @@ clothingAppControllers.controller('CustomerCtrl',
     self.shoppingCart = [];
     self.addToCart = function(product){
       self.shoppingCart.push(product);
+      product.quantity -= 1;
     };
   }
 );
