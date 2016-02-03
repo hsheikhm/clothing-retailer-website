@@ -13,11 +13,36 @@
   height: 237px;
   width: 250px;
   background-color: #FFFFFF;
-  border-radius: 6px;
   text-align: center;
   margin: 14px;
   border-style: solid;
   border-color: #FFFFFF;
-  border-width: 2px;
+  border-width: 3px;
   opacity: 0.8;
+}
+
+.category-box:hover {
+  border-color: #428bca;
+  opacity: 1;
+}
+
+.category-image-div {
+  height: 130px;
+  width: 160px;
+  margin: auto;
+  margin-top: 14px;
+}
+
+.category-title {
+  font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #125688;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-top: 44px;
+}
+
+.category-image {
+  height: 100%;
+  width: 75%;
 }
