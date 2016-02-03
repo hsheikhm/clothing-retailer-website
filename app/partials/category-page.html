@@ -1,6 +1,7 @@
 <ul ng-repeat="product in category.products">
   <li>
     {{product.name}}, {{product.category}}, £{{product.price}}, {{product.quantity}}
+    <p ng-show="customer.outOfStockMessage(product)">This product is out of stock!</p>
     <button type="submit" name="add" ng-click="customer.addToCart(product)">
       Add to Cart
     </button>

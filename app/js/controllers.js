@@ -21,9 +21,21 @@ clothingAppControllers.controller('CustomerCtrl',
     self.totalPrice = 0;
 
     self.addToCart = function(product){
-      self.shoppingCart.push(product);
-      product.quantity -= 1;
-      self.calculateTotalPrice();
+      if(self.productAvailable(product)){
+        self.shoppingCart.push(product);
+        product.quantity -= 1;
+        self.calculateTotalPrice();
+      } else {
+        self.selectedProduct = product;
+        self.outOfStockMessage(product); }
+    };
+
+    self.outOfStockMessage = function(product){
+      return self.selectedProduct === product;
+    };
+
+    self.productAvailable = function(product){
+      return product.quantity > 0;
     };
 
     self.removeFromCart = function(product){
@@ -45,7 +57,10 @@ clothingAppControllers.controller('CustomerCtrl',
       if(self.voucherOneValid()){ self.applyDiscount(5); }
       else if(self.voucherTwoValid()){ self.applyDiscount(10); }
       else if(self.voucherThreeValid()){ self.applyDiscount(15); }
-      else {self.invalidVoucher = true;}
+      else {
+        self.invalidVoucher = true;
+        self.discountMessage = false;
+      }
     };
 
     self.voucherOneValid = function(){
@@ -57,7 +72,9 @@ clothingAppControllers.controller('CustomerCtrl',
     };
 
     self.voucherThreeValid = function(){
-      return self.moreThanOneFootwearItem() && self.totalPrice >= 75;
+      if(self.voucherCode === "003"){
+        return self.moreThanOneFootwearItem() && self.totalPrice >= 75;
+      } else { return false; }
     };
 
     self.moreThanOneFootwearItem = function(){
@@ -72,7 +89,10 @@ clothingAppControllers.controller('CustomerCtrl',
 
     self.applyDiscount = function(discount){
       self.totalPrice -= discount;
+      self.discount = discount;
       self.invalidVoucher = false;
+      self.discountMessage = true;
+      self.voucherCode = "";
     };
 
   }
