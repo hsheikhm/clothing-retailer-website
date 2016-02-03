@@ -62,3 +62,48 @@ header {
   height: 100%;
   width: 75%;
 }
+
+.products-section {
+  background-color: #FFFFFF;
+  opacity: 0.8;
+  margin: auto;
+  width: 806px;
+  margin-top: 66px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.products-category-header {
+  font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #125688;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.products-category-property {
+  font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #125688;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.product-stock-value, .product-price-value {
+  text-align: center;
+}
+
+td, th {
+  padding: 8px;
+  padding-left: 60px;
+}
+
+td {
+  border-top-style: solid;
+  border-top-color: #125688;
+  border-top-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #125688;
+  border-bottom-width: 1px;
+}

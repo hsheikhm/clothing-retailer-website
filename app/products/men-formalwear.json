@@ -2,13 +2,13 @@
   "products": [
     {
       "name": "Sharkskin Waistcoat, Charcoal",
-      "category": "Men’s Formalwear",
+      "category": "Men’s Formal-wear",
       "price": 75.00,
       "quantity": 2
     },
     {
       "name": "Lightweight Patch Pocket Blazer, Deer",
-      "category": "Men’s Formalwear",
+      "category": "Men’s Formal-wear",
       "price": 175.50,
       "quantity": 1
     }

@@ -7,6 +7,7 @@ clothingAppControllers.controller('CategoryCtrl', ['$routeParams', 'Products',
 
     Products.getList($routeParams.category).then(function(category){
       self.products = category.data.products;
+      self.productCategory = self.products[0].category;
     });
 
   }
