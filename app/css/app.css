@@ -10,7 +10,26 @@ header {
   border-bottom-color: #125688;
   border-bottom-width: 1.5px;
   border-bottom-style: solid;
+}
 
+table {
+  margin: auto;
+}
+
+td, th {
+  padding: 18px;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+
+td {
+  border-top-style: solid;
+  border-top-color: #125688;
+  border-top-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #125688;
+  border-bottom-width: 1px;
+  color: #125688;
 }
 
 .background-image {
@@ -21,7 +40,7 @@ header {
 
 .category-section {
   margin: auto;
-  width: 806px;
+  max-width: 806px;
   margin-top: 66px;
 }
 
@@ -67,10 +86,28 @@ header {
   background-color: #FFFFFF;
   opacity: 0.8;
   margin: auto;
-  width: 806px;
+  max-width: 730px;
   margin-top: 66px;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
+}
+
+.back-link {
+  position: absolute;
+  margin-left: 3px;
+  margin-top: -1px;
+  font-size: 15px;
+  text-decoration: none !important;
+  color: #125688;
+}
+
+.back-link:hover {
+  color: #181d42;
+}
+
+.back-link-arrow {
+  margin-left: 30px;
+  color: #125688;
 }
 
 .products-category-header {
@@ -84,7 +121,7 @@ header {
 
 .products-category-property {
   font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  color: #125688;
+  color: black;
   font-weight: bold;
   font-size: 14px;
   text-transform: uppercase;
@@ -94,16 +131,16 @@ header {
   text-align: center;
 }
 
-td, th {
-  padding: 8px;
-  padding-left: 60px;
+.add-button {
+  background-color: #125688;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  width: 94px;
+  padding: 5px;
+  font-size: 12px;
 }
 
-td {
-  border-top-style: solid;
-  border-top-color: #125688;
-  border-top-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: #125688;
-  border-bottom-width: 1px;
+.add-button:hover {
+  background-color: #181d42;
 }
