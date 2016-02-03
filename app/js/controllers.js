@@ -34,37 +34,45 @@ clothingAppControllers.controller('CustomerCtrl',
     };
 
     self.calculateTotalPrice = function(){
+      var total = 0;
       self.shoppingCart.forEach(function(product){
-        self.totalPrice += product.price;
+        total += product.price;
       });
+      self.totalPrice = total;
     };
 
     self.checkValidVoucher = function(){
-
+      if(self.voucherOneValid()){ self.applyDiscount(5); }
+      else if(self.voucherTwoValid()){ self.applyDiscount(10); }
+      else if(self.voucherThreeValid()){ self.applyDiscount(15); }
+      else {self.invalidVoucher = true;}
     };
 
     self.voucherOneValid = function(){
-
+      return self.voucherCode === "001" && self.totalPrice >= 5;
     };
 
     self.voucherTwoValid = function(){
-
+      return self.voucherCode === "002" && self.totalPrice >= 50;
     };
 
     self.voucherThreeValid = function(){
-
+      return self.moreThanOneFootwearItem() && self.totalPrice >= 75;
     };
 
-    self.applyVoucherOne = function(){
-
+    self.moreThanOneFootwearItem = function(){
+      var footwearItems = 0;
+      self.shoppingCart.forEach(function(product){
+        if(product.category === "Men’s Footwear" || product.category === "Women’s Footwear"){
+          footwearItems += 1;
+        }
+      });
+      return footwearItems > 0;
     };
 
-    self.applyVoucherTwo = function(){
-
-    };
-
-    self.applyVoucherThree = function(){
-
+    self.applyDiscount = function(discount){
+      self.totalPrice -= discount;
+      self.invalidVoucher = false;
     };
 
   }
