@@ -9,3 +9,51 @@ clothingAppServices.factory('Products', ['$http',
     };
   }
 ]);
+
+clothingAppServices.factory('ShoppingCart', function() {
+  function shoppingCart() {
+
+    this.cart = [];
+    this.totalPrice = 0;
+
+    this.add = function(product){
+      if(this.productIsAvailable(product)){
+        this.cart.push(product);
+        product.quantity -= 1;
+        this.calculateTotalPrice();
+        return true;
+      } else { return false; }
+    };
+
+    this.productIsAvailable = function(product){
+      return product.quantity > 0;
+    };
+
+    this.remove = function(product){
+      position = this.cart.indexOf(product);
+      this.cart.splice(position, 1);
+      product.quantity += 1;
+      this.calculateTotalPrice();
+    };
+
+    this.calculateTotalPrice = function() {
+      var total = 0;
+      this.cart.forEach(function(product){
+        total += product.price;
+      });
+      this.totalPrice = total;
+    };
+
+    this.orderedMoreThanOneFootwearItem = function(){
+      var footwearItems = 0;
+      this.cart.forEach(function(product){
+        if(product.category === "Men’s Footwear" || product.category === "Women’s Footwear"){
+          footwearItems += 1;
+        }
+      });
+      return footwearItems > 0;
+    };
+
+  }
+  return shoppingCart;
+});

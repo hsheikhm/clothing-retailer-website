@@ -12,32 +12,65 @@ clothingAppControllers.controller('CategoryCtrl', ['$routeParams', 'Products',
   }
 ]);
 
-clothingAppControllers.controller('CustomerCtrl',
-  function() {
+clothingAppControllers.controller('CustomerCtrl', ['ShoppingCart',
+  function(ShoppingCart) {
 
     var self = this;
 
-    self.shoppingCart = [];
+    var customer = new ShoppingCart();
+
+    self.shoppingCart = customer.cart;
 
     self.addToCart = function(product){
-      self.shoppingCart.push(product);
-      product.quantity -= 1;
+      if(customer.add(product)){ return true; }
+      else {
+        self.selectedProduct = product;
+        self.printOutOfStockMessage(product); }
+    };
+
+    self.printOutOfStockMessage = function(product){
+      return self.selectedProduct === product;
     };
 
     self.removeFromCart = function(product){
-      position = self.shoppingCart.indexOf(product);
-      self.shoppingCart.splice(position, 1);
-      product.quantity += 1;
-      self.totalPrice();
+      customer.remove(product);
     };
 
-    self.totalPrice = function(){
-      var total = 0;
-      self.shoppingCart.forEach(function(product){
-        total += product.price;
-      });
-      return total;
+    self.cartTotalPrice = function(){
+      return customer.totalPrice;
+    };
+
+    self.checkValidVoucher = function(){
+      if(self.voucherOneValid()){ self.applyDiscount(5); }
+      else if(self.voucherTwoValid()){ self.applyDiscount(10); }
+      else if(self.voucherThreeValid()){ self.applyDiscount(15); }
+      else {
+        self.invalidVoucher = true;
+        self.discountMessage = false;
+      }
+    };
+
+    self.voucherOneValid = function(){
+      return self.voucherCode === "001" && self.cartTotalPrice() >= 5;
+    };
+
+    self.voucherTwoValid = function(){
+      return self.voucherCode === "002" && self.cartTotalPrice() >= 50;
+    };
+
+    self.voucherThreeValid = function(){
+      if(self.voucherCode === "003"){
+        return customer.orderedMoreThanOneFootwearItem() && self.cartTotalPrice() >= 75;
+      } else { return false; }
+    };
+
+    self.applyDiscount = function(discount){
+      customer.totalPrice -= discount;
+      self.discount = discount;
+      self.invalidVoucher = false;
+      self.discountMessage = true;
+      self.voucherCode = "";
     };
 
   }
-);
+]);

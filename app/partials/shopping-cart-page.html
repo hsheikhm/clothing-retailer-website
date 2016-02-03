@@ -8,5 +8,14 @@
 </ul>
 
 <p>
-  Total Price: {{customer.totalPrice()}}
+  Total Price: £{{customer.cartTotalPrice()}}
 </p>
+
+<form>
+  <label for="voucher">Got a voucher?</label>
+  <textarea name="voucher-code" rows="1" cols="30" ng-model="customer.voucherCode" placeholder="Enter Voucher Code"></textarea>
+  <button type="submit" name="apply-voucher" ng-click="customer.checkValidVoucher()">Apply</button>
+</form>
+
+<p ng-show="customer.invalidVoucher">This voucher is not valid!</p>
+<p ng-show="customer.discountMessage">Disount applied! £{{customer.discount}} has been taken off your order.</p>
