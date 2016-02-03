@@ -18,25 +18,53 @@ clothingAppControllers.controller('CustomerCtrl',
     var self = this;
 
     self.shoppingCart = [];
+    self.totalPrice = 0;
 
     self.addToCart = function(product){
       self.shoppingCart.push(product);
       product.quantity -= 1;
+      self.calculateTotalPrice();
     };
 
     self.removeFromCart = function(product){
       position = self.shoppingCart.indexOf(product);
       self.shoppingCart.splice(position, 1);
       product.quantity += 1;
-      self.totalPrice();
+      self.calculateTotalPrice();
     };
 
-    self.totalPrice = function(){
-      var total = 0;
+    self.calculateTotalPrice = function(){
       self.shoppingCart.forEach(function(product){
-        total += product.price;
+        self.totalPrice += product.price;
       });
-      return total;
+    };
+
+    self.checkValidVoucher = function(){
+
+    };
+
+    self.voucherOneValid = function(){
+
+    };
+
+    self.voucherTwoValid = function(){
+
+    };
+
+    self.voucherThreeValid = function(){
+
+    };
+
+    self.applyVoucherOne = function(){
+
+    };
+
+    self.applyVoucherTwo = function(){
+
+    };
+
+    self.applyVoucherThree = function(){
+
     };
 
   }
