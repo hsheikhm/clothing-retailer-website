@@ -1,7 +1,12 @@
+.background-image {
+  position: absolute;
+  -webkit-filter: blur(7px);
+}
+
 .category-section {
   margin: auto;
   width: 806px;
-  margin-top: 36px;
+  margin-top: 66px;
 }
 
 .category-box {
@@ -12,6 +17,7 @@
   text-align: center;
   margin: 14px;
   border-style: solid;
-  border-color: black;
+  border-color: #FFFFFF;
   border-width: 2px;
+  opacity: 0.8;
 }
