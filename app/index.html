@@ -9,7 +9,10 @@
   <body class="container" ng-controller="CustomerCtrl as customer">
 
     <header>
-      <p>My Shopping Cart (Total Items: {{customer.shoppingCart.length}})</p>
+      <p>My Shopping Cart
+        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+        {{customer.shoppingCart.length}}
+      </p>
       <a href="#/home/shopping-cart">View Cart</a>
     </header>
 

@@ -1,6 +1,22 @@
+header {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #125688;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-bottom-color: #125688;
+  border-bottom-width: 1.5px;
+  border-bottom-style: solid;
+
+}
+
 .background-image {
   position: absolute;
   -webkit-filter: blur(7px);
+  z-index: -1;
 }
 
 .category-section {
