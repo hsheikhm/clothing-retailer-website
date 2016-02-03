@@ -12,45 +12,32 @@ clothingAppControllers.controller('CategoryCtrl', ['$routeParams', 'Products',
   }
 ]);
 
-clothingAppControllers.controller('CustomerCtrl',
-  function() {
+clothingAppControllers.controller('CustomerCtrl', ['ShoppingCart',
+  function(ShoppingCart) {
 
     var self = this;
 
-    self.shoppingCart = [];
-    self.totalPrice = 0;
+    var customer = new ShoppingCart();
+
+    self.shoppingCart = customer.cart;
 
     self.addToCart = function(product){
-      if(self.productAvailable(product)){
-        self.shoppingCart.push(product);
-        product.quantity -= 1;
-        self.calculateTotalPrice();
-      } else {
+      if(customer.add(product)){ return true; }
+      else {
         self.selectedProduct = product;
-        self.outOfStockMessage(product); }
+        self.printOutOfStockMessage(product); }
     };
 
-    self.outOfStockMessage = function(product){
+    self.printOutOfStockMessage = function(product){
       return self.selectedProduct === product;
     };
 
-    self.productAvailable = function(product){
-      return product.quantity > 0;
-    };
-
     self.removeFromCart = function(product){
-      position = self.shoppingCart.indexOf(product);
-      self.shoppingCart.splice(position, 1);
-      product.quantity += 1;
-      self.calculateTotalPrice();
+      customer.remove(product);
     };
 
-    self.calculateTotalPrice = function(){
-      var total = 0;
-      self.shoppingCart.forEach(function(product){
-        total += product.price;
-      });
-      self.totalPrice = total;
+    self.cartTotalPrice = function(){
+      return customer.totalPrice;
     };
 
     self.checkValidVoucher = function(){
@@ -64,31 +51,21 @@ clothingAppControllers.controller('CustomerCtrl',
     };
 
     self.voucherOneValid = function(){
-      return self.voucherCode === "001" && self.totalPrice >= 5;
+      return self.voucherCode === "001" && self.cartTotalPrice() >= 5;
     };
 
     self.voucherTwoValid = function(){
-      return self.voucherCode === "002" && self.totalPrice >= 50;
+      return self.voucherCode === "002" && self.cartTotalPrice() >= 50;
     };
 
     self.voucherThreeValid = function(){
       if(self.voucherCode === "003"){
-        return self.moreThanOneFootwearItem() && self.totalPrice >= 75;
+        return customer.orderedMoreThanOneFootwearItem() && self.cartTotalPrice() >= 75;
       } else { return false; }
     };
 
-    self.moreThanOneFootwearItem = function(){
-      var footwearItems = 0;
-      self.shoppingCart.forEach(function(product){
-        if(product.category === "Men’s Footwear" || product.category === "Women’s Footwear"){
-          footwearItems += 1;
-        }
-      });
-      return footwearItems > 0;
-    };
-
     self.applyDiscount = function(discount){
-      self.totalPrice -= discount;
+      customer.totalPrice -= discount;
       self.discount = discount;
       self.invalidVoucher = false;
       self.discountMessage = true;
@@ -96,4 +73,4 @@ clothingAppControllers.controller('CustomerCtrl',
     };
 
   }
-);
+]);
