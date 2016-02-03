@@ -1,0 +1,12 @@
+<ul ng-repeat="product in customer.shoppingCart track by $index">
+  <li>
+    {{product.name}} (£{{product.price}})
+  </li>
+  <button type="submit" name="remove" ng-click="customer.removeFromCart(product)">
+    Remove from Cart
+  </button>
+</ul>
+
+<p>
+  Total Price: {{customer.totalPrice()}}
+</p>

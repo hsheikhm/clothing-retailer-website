@@ -11,6 +11,9 @@ clothingApp.config(['$routeProvider',
       when('/home', {
         templateUrl: 'partials/home-page.html'
       }).
+      when('/home/shopping-cart', {
+        templateUrl: 'partials/shopping-cart-page.html'
+      }).
       when('/home/:category', {
         templateUrl: 'partials/category-page.html',
         controller: "CategoryCtrl",

@@ -1,5 +1,8 @@
 <ul ng-repeat="product in category.products">
   <li>
     {{product.name}}, {{product.category}}, £{{product.price}}, {{product.quantity}}
+    <button type="submit" name="add" ng-click="customer.addToCart(product)">
+      Add to Cart
+    </button>
   </li>
 </ul>
