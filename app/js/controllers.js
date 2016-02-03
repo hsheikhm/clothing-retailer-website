@@ -28,6 +28,15 @@ clothingAppControllers.controller('CustomerCtrl',
       position = self.shoppingCart.indexOf(product);
       self.shoppingCart.splice(position, 1);
       product.quantity += 1;
+      self.totalPrice();
+    };
+
+    self.totalPrice = function(){
+      var total = 0;
+      self.shoppingCart.forEach(function(product){
+        total += product.price;
+      });
+      return total;
     };
 
   }
