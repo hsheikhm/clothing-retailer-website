@@ -177,6 +177,7 @@ a {
   overflow-y: scroll;
   padding-top: 10px;
   margin: auto;
+  padding-left: 32px;
 }
 
 .remove-button {
@@ -614,12 +615,22 @@ a {
   .back-link-arrow {
     margin-left: 11px;
     color: #125688;
+    top: -2px;
+  }
+
+  .back-link {
+    position: absolute;
+    margin-left: 3px;
+    margin-top: -1px;
+    font-size: 12px;
+    text-decoration: none !important;
+    color: #125688;
   }
 
   .voucher-section {
     background-color: #FFFFFF;
     opacity: 0.9;
-    max-width: 239px;
+    max-width: 240px;
     padding-top: 30px;
     padding-bottom: 13px;
     margin-left: 0px;
@@ -658,7 +669,7 @@ a {
     padding: 4px;
     font-size: 11px;
     position: absolute;
-    margin-left: 6px;
+    margin-left: 11px;
     margin-top: 46px;
   }
 
@@ -692,11 +703,9 @@ a {
 }
 
 @media only screen and (max-width:473px) {
-
   td {
     font-size: 11px;
   }
-
 }
 
 @media only screen and (max-width:430px) {
