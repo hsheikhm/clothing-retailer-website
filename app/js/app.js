@@ -3,7 +3,8 @@ var clothingApp = angular.module('clothingApp', [
   'ngResource',
   'ngAnimate',
   'clothingAppControllers',
-  'clothingAppServices'
+  'clothingAppServices',
+  'clothingAppDirectives'
 ]);
 
 clothingApp.config(['$routeProvider',
