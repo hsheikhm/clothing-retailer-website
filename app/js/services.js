@@ -47,7 +47,7 @@ clothingAppServices.factory('ShoppingCart', function() {
     this.orderedMoreThanOneFootwearItem = function(){
       var footwearItems = 0;
       this.cart.forEach(function(product){
-        if(product.category === "Men’s Footwear" || product.category === "Women’s Footwear"){
+        if(product.category === "Men’s Foot-wear" || product.category === "Women’s Foot-wear"){
           footwearItems += 1;
         }
       });

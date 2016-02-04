@@ -152,13 +152,13 @@ td {
   font-size: 12px;
 }
 
-.add-button:hover, .remove-button:hover {
+.add-button:hover, .remove-button:hover, .voucher-button:hover {
   background-color: #181d42;
 }
 
 .shopping-cart-section {
   background-color: #FFFFFF;
-  opacity: 0.8;
+  opacity: 0.9;
   margin: auto;
   max-width: 827px;
   margin-top: 61px;
@@ -187,12 +187,12 @@ td {
 
 .total-price-section {
   background-color: #FFFFFF;
-  opacity: 0.8;
+  opacity: 0.9;
   max-width: 213px;
   padding-top: 30px;
-  padding-bottom: 30px;
-  margin-left: 850px;
-  margin-top: -171px;
+  padding-bottom: 13px;
+  margin-left: 770px;
+  margin-top: 15px;
 }
 
 .total-price-figure {
@@ -202,4 +202,70 @@ td {
   font-size: 38px;
   text-transform: uppercase;
   text-align: center;
+}
+
+.voucher-section {
+  background-color: #FFFFFF;
+  opacity: 0.9;
+  max-width: 598px;
+  padding-top: 30px;
+  padding-bottom: 13px;
+  margin-left: 157px;
+  margin-top: -142px;
+  height: 142px;
+}
+
+.voucher-form {
+  height: 63px;
+  margin-top: -30px;
+}
+
+.voucher-label {
+  font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #125688;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 32px;
+  position: absolute;
+  margin-left: 43px;
+}
+
+.voucher-textarea {
+  resize: none;
+  text-align: center;
+  border-color: #125688;
+  margin-top: 32px;
+  width: 182px;
+  margin-left: 222px;
+}
+
+.voucher-button {
+  background-color: #125688;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  width: 60px;
+  padding: 5px;
+  font-size: 12px;
+  position: absolute;
+  margin-left: 25px;
+  margin-top: 32px;
+}
+
+.invalid-message {
+  text-align: center;
+  color: red;
+  font-size: 17px;
+  margin-top: 7px;
+  margin-left: 30px;
+}
+
+.discount-message {
+  text-align: center;
+  color: green;
+  font-size: 17px;
+  margin-top: 17px;
+  margin-left: 30px;
 }
