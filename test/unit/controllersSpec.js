@@ -62,13 +62,13 @@ describe('clothingAppControllers', function(){
 
   describe('CustomerCtrl', function(){
 
-    var ctrl, shoppingCart;
+    var ctrl, shoppingCart, product;
 
     beforeEach(function() {
       shoppingCart = {
         cart: [],
         totalPrice: 0,
-        add: function() {},
+        add: function(product) {},
         productIsAvailable: function() {},
         remove: function() {},
         calculateTotalPrice: function() {},
@@ -80,11 +80,24 @@ describe('clothingAppControllers', function(){
       ctrl = $controller('CustomerCtrl');
     }));
 
-    it('initializes with a new and empty shoppingCart', function() {
+    product = {
+      "name": "Lightweight Patch Pocket Blazer, Deer",
+      "category": "Men’s Formal-wear",
+      "price": 175.50,
+      "quantity": 1
+    };
+
+    it('initializes with a new and empty shoppingCart', function(){
       expect(ctrl.shoppingCart).toEqualData(shoppingCart.cart);
     });
 
+    describe('addToCart', function(){
 
+      it('adds a product to the shopping cart if in stock', function(){
+        expect(ctrl.addToCart(product)).toEqual(true);
+      });
+
+    });
 
   });
 
