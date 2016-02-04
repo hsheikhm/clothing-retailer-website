@@ -5,6 +5,7 @@
     <title>Clothing Retailer Website</title>
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/animations.css">
   </head>
   <body class="container" ng-controller="CustomerCtrl as customer">
 
@@ -19,8 +20,8 @@
 
     <img class="background-image" src="img/background-image-fashion.jpg"/>
 
-    <div class="main-section">
-      <div ng-view></div>
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
     </div>
 
     <script src="../bower_components/jquery/dist/jquery.js"></script>

@@ -1,6 +1,7 @@
 var clothingApp = angular.module('clothingApp', [
   'ngRoute',
   'ngResource',
+  'ngAnimate',
   'clothingAppControllers',
   'clothingAppServices'
 ]);

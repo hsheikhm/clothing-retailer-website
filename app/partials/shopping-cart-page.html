@@ -1,21 +1,34 @@
-<ul ng-repeat="product in customer.shoppingCart track by $index">
-  <li>
-    {{product.name}} (£{{product.price}})
-  </li>
-  <button type="submit" name="remove" ng-click="customer.removeFromCart(product)">
-    Remove from Cart
-  </button>
-</ul>
+<section class="shopping-cart-section">
+  <span class="glyphicon glyphicon-chevron-left back-link-arrow" aria-hidden="true"></span>
+  <a class="back-link" href="#/home/">Continue Shopping</a>
+  <p class="section-header">Items Ordered</p>
+  <table class="shopping-cart-table">
+    <tbody>
+      <tr ng-repeat="product in customer.shoppingCart track by $index">
+        <td class="product-name-value">1 x {{product.name}}</td>
+        <td class="product-category-value">{{product.category}}</td>
+        <td class="product-price-value">£{{product.price | number:2}}</td>
+        <td>
+          <button type="submit" name="remove" class="remove-button" ng-click="customer.removeFromCart(product)">
+            Remove from Cart
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-<p>
-  Total Price: £{{customer.cartTotalPrice()}}
-</p>
+<div class="total-price-section">
+  <p class="section-header">Total Price</p>
+  <p class="total-price-figure">£{{customer.cartTotalPrice() | number:2}}</p>
+</div>
 
-<form>
-  <label for="voucher">Got a voucher?</label>
-  <textarea name="voucher-code" rows="1" cols="30" ng-model="customer.voucherCode" placeholder="Enter Voucher Code"></textarea>
-  <button type="submit" name="apply-voucher" ng-click="customer.checkValidVoucher()">Apply</button>
-</form>
-
-<p ng-show="customer.invalidVoucher">This voucher is not valid!</p>
-<p ng-show="customer.discountMessage">Disount applied! £{{customer.discount}} has been taken off your order.</p>
+<div class="voucher-section">
+  <form class="voucher-form">
+    <label class="voucher-label" for="voucher">Got a voucher?</label>
+    <textarea class="voucher-textarea" name="voucher-code" rows="1" cols="30" ng-model="customer.voucherCode" placeholder="Enter Voucher Code"></textarea>
+    <button class="voucher-button" type="submit" name="apply-voucher" ng-click="customer.checkValidVoucher()">Apply</button>
+  </form>
+  <p class="invalid-message" ng-show="customer.invalidVoucher">This voucher is not valid!</p>
+  <p class="discount-message" ng-show="customer.discountMessage">Disount applied! £{{customer.discount}} has been taken off your order.</p>
+</div>
