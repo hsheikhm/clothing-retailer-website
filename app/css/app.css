@@ -17,7 +17,7 @@ table {
 }
 
 td, th {
-  padding: 18px;
+  padding: 12px;
   padding-left: 26px;
   padding-right: 26px;
 }
@@ -41,7 +41,7 @@ td {
 .category-section {
   margin: auto;
   max-width: 806px;
-  margin-top: 66px;
+  margin-top: 46px;
 }
 
 .category-box {
@@ -87,7 +87,7 @@ td {
   opacity: 0.8;
   margin: auto;
   max-width: 730px;
-  margin-top: 66px;
+  margin-top: 61px;
   padding-top: 20px;
   padding-bottom: 40px;
 }
@@ -110,7 +110,11 @@ td {
   color: #125688;
 }
 
-.products-category-header {
+.products-table {
+  margin-top: 25px;
+}
+
+.section-header {
   font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   color: #125688;
   font-weight: bold;
@@ -119,7 +123,7 @@ td {
   text-align: center;
 }
 
-.products-category-property {
+.section-table-heading {
   font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   color: black;
   font-weight: bold;
@@ -134,7 +138,7 @@ td {
   font-style: italic;
 }
 
-.product-stock-value, .product-price-value {
+.product-stock-value, .product-price-value, .product-category-value {
   text-align: center;
 }
 
@@ -148,6 +152,54 @@ td {
   font-size: 12px;
 }
 
-.add-button:hover {
+.add-button:hover, .remove-button:hover {
   background-color: #181d42;
+}
+
+.shopping-cart-section {
+  background-color: #FFFFFF;
+  opacity: 0.8;
+  margin: auto;
+  max-width: 827px;
+  margin-top: 61px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.shopping-cart-table {
+  display: block;
+  max-height: 245px;
+  width: 823px;
+  overflow-y: scroll;
+  padding-top: 10px;
+  margin: auto;
+}
+
+.remove-button {
+  background-color: #125688;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  width: 136px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.total-price-section {
+  background-color: #FFFFFF;
+  opacity: 0.8;
+  max-width: 213px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: 850px;
+  margin-top: -171px;
+}
+
+.total-price-figure {
+  font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #125688;
+  font-weight: bold;
+  font-size: 38px;
+  text-transform: uppercase;
+  text-align: center;
 }

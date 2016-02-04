@@ -1,12 +1,12 @@
 <section class="products-section">
   <span class="glyphicon glyphicon-chevron-left back-link-arrow" aria-hidden="true"></span>
   <a class="back-link" href="#/home/">Back</a>
-  <p class="products-category-header">{{category.productCategory}}</p>
-  <table>
+  <p class="section-header">{{category.productCategory}}</p>
+  <table class="products-table">
     <tr>
-      <th class="products-category-property">Product</th>
-      <th class="products-category-property">Price</th>
-      <th class="products-category-property">Number in Stock</th>
+      <th class="section-table-heading">Product</th>
+      <th class="section-table-heading">Price</th>
+      <th class="section-table-heading">Number in Stock</th>
     </tr>
     <tr ng-repeat="product in category.products">
       <td class="product-name-value">
