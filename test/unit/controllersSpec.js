@@ -51,6 +51,42 @@ describe('clothingAppControllers', function(){
       });
     });
 
+    it("should create a 'productCategory' model that matches the category name", function(){
+      expect(ctrl.productCategory).toBeUndefined();
+      http.get('products/men-casualwear.json').then(function(response){
+        expect(ctrl.productCategory).toEqualData("Men’s Casual-wear");
+      });
+    });
+
   });
+
+  describe('CustomerCtrl', function(){
+
+    var ctrl, shoppingCart;
+
+    beforeEach(function() {
+      shoppingCart = {
+        cart: [],
+        totalPrice: 0,
+        add: function() {},
+        productIsAvailable: function() {},
+        remove: function() {},
+        calculateTotalPrice: function() {},
+        orderedMoreThanOneFootwearItem: function() {}
+      };
+    });
+
+    beforeEach(inject(function($controller){
+      ctrl = $controller('CustomerCtrl');
+    }));
+
+    it('initializes with a new and empty shoppingCart', function() {
+      expect(ctrl.shoppingCart).toEqualData(shoppingCart.cart);
+    });
+
+
+
+  });
+
 
 });
