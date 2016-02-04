@@ -1,9 +1,27 @@
-<ul ng-repeat="product in category.products">
-  <li>
-    {{product.name}}, {{product.category}}, £{{product.price}}, {{product.quantity}}
-    <p ng-show="customer.printOutOfStockMessage(product)">This product is out of stock!</p>
-    <button type="submit" name="add" ng-click="customer.addToCart(product)">
-      Add to Cart
-    </button>
-  </li>
-</ul>
+<section class="products-section">
+  <span class="glyphicon glyphicon-chevron-left back-link-arrow" aria-hidden="true"></span>
+  <a class="back-link" href="#/home/">Back</a>
+  <p class="products-category-header">{{category.productCategory}}</p>
+  <table>
+    <tr>
+      <th class="products-category-property">Product</th>
+      <th class="products-category-property">Price</th>
+      <th class="products-category-property">Number in Stock</th>
+    </tr>
+    <tr ng-repeat="product in category.products">
+      <td class="product-name-value">
+        {{product.name}}
+        <p class="out-of-stock-message" ng-show="customer.printOutOfStockMessage(product)">
+          This product is out of stock!
+        </p>
+      </td>
+      <td class="product-price-value">£{{product.price | number:2}}</td>
+      <td class="product-stock-value">{{product.quantity}}</td>
+      <td>
+        <button type="submit" name="add" class="add-button" ng-click="customer.addToCart(product)">
+          Add to Cart
+        </button>
+      </td>
+    </tr>
+  </table>
+</section>
