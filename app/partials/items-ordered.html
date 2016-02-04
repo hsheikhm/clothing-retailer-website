@@ -1,0 +1,14 @@
+<table class="shopping-cart-table">
+  <tbody>
+    <tr ng-repeat="product in customer.shoppingCart track by $index">
+      <td class="product-name-value">1 x {{product.name}}</td>
+      <td class="product-category-value">{{product.category}}</td>
+      <td class="product-price-value">£{{product.price | number:2}}</td>
+      <td>
+        <button type="submit" name="remove" class="remove-button" ng-click="customer.removeFromCart(product)">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
