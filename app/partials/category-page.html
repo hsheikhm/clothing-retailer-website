@@ -8,7 +8,7 @@
       <th class="section-table-heading">Price</th>
       <th class="section-table-heading">Number in Stock</th>
     </tr>
-    <tr ng-repeat="product in category.products">
+    <tr ng-repeat="product in category.products" class="product-listing">
       <td class="product-name-value">
         {{product.name}}
         <p class="out-of-stock-message" ng-show="customer.printOutOfStockMessage(product)">
