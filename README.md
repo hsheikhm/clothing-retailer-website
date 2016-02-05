@@ -95,30 +95,42 @@ I had completed and passed all [feature / e2e](https://github.com/hsheikhm/cloth
 
 ***User can view all 6 categories:***
 
-![Home Page]()
+![Home Page](https://github.com/hsheikhm/Github-Images/blob/master/clothing-retailer-website/home-page.png)
 
 ***User can view a single category and add a product:***
 
-![Category Page]()
+![Category Page](https://github.com/hsheikhm/Github-Images/blob/master/clothing-retailer-website/category-page.png)
 
 ***User cannot add a product that is out of stock:***
 
-![Out of Stock Product]()
+![Out of Stock Product](https://github.com/hsheikhm/Github-Images/blob/master/clothing-retailer-website/out-of-stock-product.png)
 
 ***User can view their shopping cart, see the total price, and remove a product:***
 
-![Shopping Cart Page]()
+![Shopping Cart Page](https://github.com/hsheikhm/Github-Images/blob/master/clothing-retailer-website/shopping-cart-page.png)
 
 ***User can apply a voucher which gives them a discount:***
 
-![Apply Voucher]()
+![Apply Voucher](https://github.com/hsheikhm/Github-Images/blob/master/clothing-retailer-website/apply-voucher.png)
 
+## Download Instructions
 
+Follow the below instructions on your terminal to use the website:
 
+```
+$ git clone https://github.com/hsheikhm/clothing-retailer-website.git
+$ cd clothing-retailer-website
+$ npm install
+$ bower install
+$ npm start
+(On your browser visit: http://localhost:8000/app/#/home)
 
+```
 
+Below are the codes to be entered when you wish to test using the vouchers:
 
+Code for £5 off voucher: 001
+Code for £10 off voucher when spent over £50: 002
+Code for £15 off voucher when spent over £75 and ordered a foot-wear item: 003
 
-
-
-For Download Instructions remember to also provide the voucher codes.
+#### Author: [Hamza Sheikh](https://github.com/hsheikhm)
