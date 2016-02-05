@@ -128,8 +128,8 @@ $ npm start
 
 Below are the codes to be entered when you wish to test using the vouchers:
 
-* Code for £5 off voucher: 001
-* Code for £10 off voucher when spent over £50: 002
-* Code for £15 off voucher when spent over £75 and ordered a foot-wear item: 003
+* Code for £5 off voucher: **001**
+* Code for £10 off voucher when spent over £50: **002**
+* Code for £15 off voucher when spent over £75 and ordered a foot-wear item: **003**
 
 #### Author: [Hamza Sheikh](https://github.com/hsheikhm)
