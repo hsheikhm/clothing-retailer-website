@@ -36,7 +36,7 @@ describe('clothingApp', function(){
 
   describe('Category page view', function(){
 
-    beforeEach(function() {
+    beforeEach(function(){
       browser.get('app/index.html#/home');
       element.all(by.css('.category-box')).first().click();
     });
@@ -59,9 +59,42 @@ describe('clothingApp', function(){
       expect(productPrices).toMatch(["£34.00", "£19.00", "£19.00"]);
     });
 
-    it('should display the stock quantities of available products', function(){
+    it('should display the stock quagsntities of available products', function(){
       var productQuantities = element.all(by.css('.product-stock-value')).getText();
       expect(productQuantities).toMatch(["12", "6", "0"]);
+    });
+
+    describe('Adding a product to the shopping cart', function(){
+
+      beforeEach(function(){
+        element.all(by.css('.add-button')).first().click();
+      });
+
+      it("should show the product's quantity being reduced by 1", function(){
+        expect(element.all(by.css('.product-stock-value')).first().getText()).toMatch("11");
+      });
+
+      it("should show the shopping cart items figure increase by 1", function(){
+        expect(element(by.css('.shopping-cart-tally')).getText()).toMatch("MY SHOPPING CART 1");
+      });
+
+    });
+
+    describe('Trying to add an out-of-stock product into shopping cart', function(){
+
+      beforeEach(function(){
+        element.all(by.css('.add-button')).last().click();
+      });
+
+      it("should display an out-of-stock message", function(){
+        var message = "This product is out of stock!";
+        expect(element.all(by.css('.out-of-stock-message')).last().getText()).toMatch(message);
+      });
+
+      it("should not change the shopping cart items figure", function(){
+        expect(element(by.css('.shopping-cart-tally')).getText()).toMatch("MY SHOPPING CART 0");
+      });
+
     });
 
   });
