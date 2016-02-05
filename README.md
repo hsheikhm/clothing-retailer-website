@@ -52,7 +52,7 @@ I want to see a message whenever I try to add an out-of-stock product to my cart
 
 I decided to build this website using **AngularJS** since it is one of my favorite frameworks for building responsive websites. AngularJS makes it really simple to set up a project and structure your code, thanks to its **controllers, services** and **directives**. Another reason for choosing AngularJS was that the data used for this website was in small amounts therefore it wasn't necessary to use a framework like React, one that is widely used for data heavy websites.
 
-I had created two [controllers](https://github.com/hsheikhm/clothing-retailer-website/blob/master/app/js/controllers.js), one for getting the **JSON data** and the other for **managing** the shopping cart. I had also refactored my code by creating two [services](https://github.com/hsheikhm/clothing-retailer-website/blob/master/app/js/services.js), one responsible for creating a **GET request** and the other responsible for **creating** the shopping cart.
+I had created two [controllers](https://github.com/hsheikhm/clothing-retailer-website/blob/master/app/js/controllers.js), one for getting the **JSON data** and the other for **managing** the shopping cart. I had also refactored my code by creating two [factories](https://github.com/hsheikhm/clothing-retailer-website/blob/master/app/js/services.js), one responsible for creating a **GET request** and the other responsible for **creating** the shopping cart.
 
 Lastly I had configured all my **routes** and **dependencies** in the [app.js](https://github.com/hsheikhm/clothing-retailer-website/blob/master/app/js/app.js) file.
 
