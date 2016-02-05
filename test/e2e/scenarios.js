@@ -32,6 +32,13 @@ describe('clothingApp', function(){
       });
     });
 
+    it('should allow user to navigate diectly to their shopping cart', function(){
+      element(by.css('.view-cart-link')).click();
+      browser.getLocationAbsUrl().then(function(url){
+        expect(url).toEqual('/home/shopping-cart');
+      });
+    });
+
   });
 
   describe('Category page view', function(){
@@ -39,6 +46,13 @@ describe('clothingApp', function(){
     beforeEach(function(){
       browser.get('app/index.html#/home');
       element.all(by.css('.category-box')).first().click();
+    });
+
+    it('should allow user to go back to home page by clicking on back link', function(){
+      element(by.css('.back-link')).click();
+      browser.getLocationAbsUrl().then(function(url){
+        expect(url).toEqual('/home');
+      });
     });
 
     it('should display the category name at the top', function(){
@@ -59,7 +73,7 @@ describe('clothingApp', function(){
       expect(productPrices).toMatch(["£34.00", "£19.00", "£19.00"]);
     });
 
-    it('should display the stock quagsntities of available products', function(){
+    it('should display the stock quantities of available products', function(){
       var productQuantities = element.all(by.css('.product-stock-value')).getText();
       expect(productQuantities).toMatch(["12", "6", "0"]);
     });
@@ -96,6 +110,51 @@ describe('clothingApp', function(){
       });
 
     });
+
+  });
+
+  describe('Shopping cart view', function(){
+
+    beforeEach(function(){
+      browser.get('app/index.html#/home');
+      element.all(by.css('.category-box')).first().click();
+      element.all(by.css('.add-button')).first().click();
+      element(by.css('.view-cart-link')).click();
+    });
+
+    it("should display the header 'Items Ordered'", function(){
+      expect(element.all(by.css('.section-header')).first().getText()).toMatch("ITEMS ORDERED");
+    });
+
+    describe('Shopping cart list', function(){
+
+      it('should display the name of the product ordered', function(){
+        var productName = "1 x Leather Driver Saddle Loafers, Tan";
+        expect(element(by.css('.product-name-value')).getText()).toMatch(productName);
+      });
+
+      it('should display the category name of the product ordered', function(){
+        var productCategory = "Men’s Foot-wear";
+        expect(element(by.css('.product-category-value')).getText()).toMatch(productCategory);
+      });
+
+      it('should display the price of the product ordered', function(){
+        expect(element(by.css('.product-price-value')).getText()).toMatch("£34.00");
+      });
+
+      it('should display the total price of the order', function(){
+        expect(element(by.css('.total-price-figure')).getText()).toMatch("£34.00");
+      });
+
+    });
+
+    describe('Removing a product from the shopping cart', function(){
+
+
+    });
+
+
+
 
   });
 
