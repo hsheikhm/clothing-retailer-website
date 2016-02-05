@@ -66,6 +66,57 @@ To make the website **responsive** I had set different css values to different [
 
 I had completed and passed all [feature / e2e](https://github.com/hsheikhm/clothing-retailer-website/blob/master/test/e2e/scenarios.js) tests using **Protractor** and **Selenium**. As for unit testing I used **Karma-Jasmine**. Unfortunately I didn't have time to test all my controllers and services so my [unit testing](https://github.com/hsheikhm/clothing-retailer-website/blob/master/test/unit/controllersSpec.js) remains to be completed.
 
+## Directory Structure
+
+```
+├── app/
+│   ├── css/
+│   ├── img/   
+│   ├── partials/  
+│   ├── products/   
+│   ├── js/   
+│   │   ├── app.js
+│   │   ├── controllers.js
+│   │   ├── directives.js
+│   │   └── services.js
+│   └── index.html
+│   
+├── test/
+│   ├── e2e/
+│   │   └── scenarios.js
+│   ├── unit/  
+│   │    └── controllersSpec.js
+│   ├── karma.conj.js
+│   └── protractor-conf.js
+│
+```
+
+## App Usage and Features
+
+***User can view all 6 categories:***
+
+![Home Page]()
+
+***User can view a single category and add a product:***
+
+![Category Page]()
+
+***User cannot add a product that is out of stock:***
+
+![Out of Stock Product]()
+
+***User can view their shopping cart, see the total price, and remove a product:***
+
+![Shopping Cart Page]()
+
+***User can apply a voucher which gives them a discount:***
+
+![Apply Voucher]()
+
+
+
+
+
 
 
 
