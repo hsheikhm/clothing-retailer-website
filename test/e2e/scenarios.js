@@ -122,6 +122,13 @@ describe('clothingApp', function(){
       element(by.css('.view-cart-link')).click();
     });
 
+    it('should allow user to navigate back to home page to continue shopping', function(){
+      element(by.css('.back-link')).click();
+      browser.getLocationAbsUrl().then(function(url){
+        expect(url).toEqual('/home');
+      });
+    });
+
     it("should display the header 'Items Ordered'", function(){
       expect(element.all(by.css('.section-header')).first().getText()).toMatch("ITEMS ORDERED");
     });
@@ -150,11 +157,104 @@ describe('clothingApp', function(){
 
     describe('Removing a product from the shopping cart', function(){
 
+      beforeEach(function(){
+        element(by.css('.remove-button')).click();
+      });
+
+      it("should decrease the shopping cart items tally by 1", function(){
+        expect(element(by.css('.shopping-cart-tally')).getText()).toMatch("MY SHOPPING CART 0");
+      });
+
+      it("should adjust the total price accordingly", function(){
+        expect(element(by.css('.total-price-figure')).getText()).toMatch("£0.00");
+      });
 
     });
 
+    describe('Using an invalid voucher', function(){
 
+      beforeEach(function(){
+        var voucherCode = element(by.model('customer.voucherCode'));
+        voucherCode.sendKeys('210');
+        element(by.css('.voucher-button')).click();
+      });
 
+      it("should display a message confirming that the voucher is invalid", function(){
+        var invalidMessage = "This voucher is not valid!";
+        expect(element(by.css('.invalid-message')).getText()).toMatch(invalidMessage);
+      });
+
+      it("should not make any changes to the total price figure", function(){
+        expect(element(by.css('.total-price-figure')).getText()).toMatch("£34.00");
+      });
+
+    });
+
+    describe('Vouchers: £5 off voucher', function(){
+
+      beforeEach(function(){
+        var voucherCode = element(by.model('customer.voucherCode'));
+        voucherCode.sendKeys('001');
+        element(by.css('.voucher-button')).click();
+      });
+
+      it("should reduce the total price figure by £5", function(){
+        expect(element(by.css('.total-price-figure')).getText()).toMatch("£29.00");
+      });
+
+      it("should display a message confirming that a discount has been applied", function(){
+        var discountMessage = "Disount applied! £5 has been taken off your order.";
+        expect(element(by.css('.discount-message')).getText()).toMatch(discountMessage);
+      });
+
+    });
+
+    describe('Vouchers: £10 off voucher when spent over £50', function(){
+
+      beforeEach(function(){
+        element(by.css('.back-link')).click();
+        element.all(by.css('.category-box')).first().click();
+        element.all(by.css('.add-button')).first().click();
+        element(by.css('.view-cart-link')).click();
+        var voucherCode = element(by.model('customer.voucherCode'));
+        voucherCode.sendKeys('002');
+        element(by.css('.voucher-button')).click();
+      });
+
+      it("should reduce the total price figure by £10", function(){
+        expect(element(by.css('.total-price-figure')).getText()).toMatch("£58.00");
+      });
+
+      it("should display a message confirming that a discount has been applied", function(){
+        var discountMessage = "Disount applied! £10 has been taken off your order.";
+        expect(element(by.css('.discount-message')).getText()).toMatch(discountMessage);
+      });
+
+    });
+
+    describe('Vouchers: £15 off voucher when spent over £75 and ordered a foot-wear item', function(){
+
+      beforeEach(function(){
+        element(by.css('.back-link')).click();
+        element.all(by.css('.category-box')).first().click();
+        element.all(by.css('.add-button')).first().click();
+        element.all(by.css('.add-button')).first().click();
+        element(by.css('.view-cart-link')).click();
+        var voucherCode = element(by.model('customer.voucherCode'));
+        voucherCode.sendKeys('003');
+        element(by.css('.voucher-button')).click();
+      });
+
+      it("should reduce the total price figure by £15", function(){
+        expect(element(by.css('.total-price-figure')).getText()).toMatch("£87.00");
+      });
+
+      it("should display a message confirming that a discount has been applied", function(){
+        var discountMessage = "Disount applied! £15 has been taken off your order.";
+        expect(element(by.css('.discount-message')).getText()).toMatch(discountMessage);
+      });
+
+    });
 
   });
 
