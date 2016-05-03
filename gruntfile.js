@@ -20,7 +20,7 @@ module.exports = function(grunt){
       },
       dist: {
         src: ['app/js/*.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        dest: 'dist/js/<%= pkg.name %>.js'
       }
     },
 
@@ -30,7 +30,7 @@ module.exports = function(grunt){
       },
       dist: {
         files: {
-          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+          'dist/js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
         }
       }
     },
@@ -42,7 +42,25 @@ module.exports = function(grunt){
       },
       target: {
         files: {
-          'app/css/<%= pkg.name %>.min.css': ['app/css/app.css', 'app/css/animations.css']
+          'dist/css/<%= pkg.name %>.min.css': ['app/css/app.css', 'app/css/animations.css']
+        }
+      }
+    },
+
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          'dist/partials/category-page.html': 'app/partials/category-page.html',
+          'dist/partials/home-page.html': 'app/partials/home-page.html',
+          'dist/partials/items-ordered.html': 'app/partials/items-ordered.html',
+          'dist/partials/mens-categories.html': 'app/partials/mens-categories.html',
+          'dist/partials/products-list.html': 'app/partials/products-list.html',
+          'dist/partials/shopping-cart-page.html': 'app/partials/shopping-cart-page.html',
+          'dist/partials/womens-categories.html': 'app/partials/womens-categories.html'
         }
       }
     },
@@ -61,7 +79,8 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'cssmin', 'htmlmin']);
 
 };
