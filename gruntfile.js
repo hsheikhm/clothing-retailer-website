@@ -35,6 +35,18 @@ module.exports = function(grunt){
       }
     },
 
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          'app/css/<%= pkg.name %>.min.css': ['app/css/app.css', 'app/css/animations.css']
+        }
+      }
+    },
+
     watch: {
       app: {
         files: ['<%= jshint.files %>'],
@@ -48,7 +60,8 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'cssmin']);
 
 };
