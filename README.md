@@ -80,6 +80,10 @@ I had completed and passed all [feature / e2e](https://github.com/hsheikhm/cloth
 │   │   ├── directives.js
 │   │   └── services.js
 │   └── index.html
+│
+├── dist/
+│   ├── clothing-retailer-website.js
+│   └── clothing-retailer-website.min.js
 │   
 ├── test/
 │   ├── e2e/
