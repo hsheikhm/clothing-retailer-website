@@ -11,13 +11,13 @@ clothingApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/home', {
-        templateUrl: 'partials/home-page.html'
+        templateUrl: '/dist/partials/home-page.html'
       }).
       when('/home/shopping-cart', {
-        templateUrl: 'partials/shopping-cart-page.html'
+        templateUrl: '/dist/partials/shopping-cart-page.html'
       }).
       when('/home/:category', {
-        templateUrl: 'partials/category-page.html',
+        templateUrl: '/dist/partials/category-page.html',
         controller: "CategoryCtrl",
         controllerAs: "category"
       }).
@@ -112,28 +112,28 @@ var clothingAppDirectives = angular.module('clothingAppDirectives', []);
 clothingAppDirectives.directive("mensCategories", function() {
   return {
     restrict: 'E',
-    templateUrl: 'partials/mens-categories.html'
+    templateUrl: '/dist/partials/mens-categories.html'
   };
 });
 
 clothingAppDirectives.directive("womensCategories", function() {
   return {
     restrict: 'E',
-    templateUrl: 'partials/womens-categories.html'
+    templateUrl: '/dist/partials/womens-categories.html'
   };
 });
 
 clothingAppDirectives.directive("productsList", function() {
   return {
     restrict: 'E',
-    templateUrl: 'partials/products-list.html'
+    templateUrl: '/dist/partials/products-list.html'
   };
 });
 
 clothingAppDirectives.directive("itemsOrdered", function() {
   return {
     restrict: 'E',
-    templateUrl: 'partials/items-ordered.html'
+    templateUrl: '/dist/partials/items-ordered.html'
   };
 });
 
