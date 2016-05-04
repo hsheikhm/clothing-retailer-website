@@ -1,4 +1,4 @@
-# Clothing Retailer Website
+# Clothing Retailer Website [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
 
 * [Task & User Stories](#task)
 * [My Approach](#my-approach)
